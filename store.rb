@@ -1,21 +1,17 @@
 require_relative './course'
+require_relative './price_item'
 require_relative './booking'
+require 'tty-prompt'
+prompt = TTY::Prompt.new
+require 'tty-box'
+box = TTY::Box.frame
 class Store 
+    attr_reader :name
 
-    attr_reader :name, :course
-    def initialize(name, price_items)
+    def initialize(name)
         @name = name
-        @course = Course.new
-        add_menu(price_items)
-        @booking = Booking.new
     end
-
-    def add_menu(price_items)
-        price_items.each do |name, price|
-            @course.add_item(name, price)
-        end
-    end
-    def add_to_booking(time, course)
-        @booking.add_time(time, course)
+    def greeting
+        puts "Welcome to DINER!"
     end
 end

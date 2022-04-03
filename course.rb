@@ -1,18 +1,21 @@
-require_relative './price_item'
-
 class Course
-    def initialize
-        @price_items = []
+    attr_reader :menu, :glass, :dessert
+
+    def initialize(menu, glass, dessert)
+        @menu = menu
+        @glass = glass
+        @dessert = dessert
     end
-    def add_item(name, price)
-        price_item = PricesItem.new(name, price)
-        @price_items << price_item
+    def self.display_morning
+        puts "bacon egg open sandwich, orange juice, mini pancakes"
     end
-    def get_price(name)
-        item = @price_items.find {|price_item| price_item.name == name}
-        return item.price
+    def self.display_noon
+        puts "spaghetti carbonara, champange, mini mudcake"
     end
-    def get_item
-        return @price_items
+    def self.display_night
+        puts "steak with veggie, wine, mini cheesecake"
     end
 end
+# Course.display_morning
+# Course.display_noon
+# Course.display_night
