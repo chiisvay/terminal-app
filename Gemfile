@@ -6,3 +6,4 @@ source "https://rubygems.org"
 
 gem "rspec", "~> 3.11"
 gem "tty-box"
+gem 'tty-prompt'

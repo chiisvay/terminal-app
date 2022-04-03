@@ -1,6 +1,8 @@
 require_relative './course'
 require_relative './price_item'
 require 'tty-box'
+require 'tty-prompt'
+@prompt = TTY::Prompt.new
 
 box = TTY::Box.frame
         # Welcome messege to user
@@ -30,31 +32,13 @@ while user = gets.chomp
         print prompt
     end
 end
-prompt = "> "
- # ask user what they want to see
-puts "What would you like to do?\nBooking\nExit"
-print prompt
-
-while user = gets.strip
-    case 
-         # if user select price
-    when "booking"
-         # output prices
-         # ask user th enter time
-            puts "please enter a time" 
-            booking = gets.chomp
-            # output the time
-            puts "your booking is at #{booking}"
-            # output a message
-            puts "See you soon!"
-        break
-    when "exit"
-         #  output menus
-        puts "Thanks for coming"
-        break
-    else 
-        #  if user selects nothing ask them again
-        puts "Please select either booking or exit "
-        print prompt
+    welcome = @prompt.select("would you like to do?:", %w(Booking Exit))
+    if welcome == 'Booking'
+        puts "please enter time"
+        booking = gets.chomp
+        puts "your booking is at #{booking}.See you soon!"
+    elsif welcome == 'exit'
+        puts "Thanks for coming!"
+    else
+        puts "Goodbye"
     end
-end
