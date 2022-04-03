@@ -1,52 +1,60 @@
 require_relative './course'
 require_relative './price_item'
-require 'tty-prompt'
-prompt = TTY::Prompt.new
 require 'tty-box'
+
 box = TTY::Box.frame
         # Welcome messege to user
     print TTY::Box.frame "Welcome to DINER!" 
-        # ask user what they want to see
-        puts "What would you like to see? \n"
-        puts "Price"
-        puts "Menu"
         # get user input
-        user = gets.chomp 
-        loop do
-case 
-        # if user select price
-when user == "price"
-        # output prices
+prompt = "> "
+ # ask user what they want to see
+puts "What would you like to see? \nPrice\nMenu"
+print prompt
+
+while user = gets.chomp
+    case user
+         # if user select price
+    when "price"
+         # output prices
         puts PricesItem.display_price
-        # if user select menu
-when user == "menu"
-        #  output menus
+        break
+    when "menu"
+         #  output menus
         puts "breakfast", Course.display_morning
         puts "lunch", Course.display_noon
         puts "dinner", Course.display_night
-        #  if user selects nothing
-else   
-    "Oops, please try again!"
-end
-        # if user wants to make a booking or exit
-        puts "What would you like to do?"
-        puts "Booking"
-        puts "Exit"
-        user = gets.chomp
-        # user selects booking
-    if user == "booking"
-        # ask user th enter time
-        puts "please enter a time" 
-        booking = gets.chomp
-        # output the time
-        puts "your booking is at #{booking}"
-        # output a message
-        puts "See you soon!"
         break
-        # user do not want to continue
-    else user == "exit"
-        # exit message
+    else 
+        #  if user selects nothing ask them again
+        puts "Please select either price or menu "
+        print prompt
+    end
+end
+prompt = "> "
+ # ask user what they want to see
+puts "What would you like to do?\nBooking\nExit"
+print prompt
+
+while user = gets.strip
+    case 
+         # if user select price
+    when "booking"
+         # output prices
+         # ask user th enter time
+            puts "please enter a time" 
+            booking = gets.chomp
+            # output the time
+            puts "your booking is at #{booking}"
+            # output a message
+            puts "See you soon!"
+        break
+    when "exit"
+         #  output menus
         puts "Thanks for coming"
         break
+    else 
+        #  if user selects nothing ask them again
+        puts "Please select either booking or exit "
+        print prompt
     end
 end
