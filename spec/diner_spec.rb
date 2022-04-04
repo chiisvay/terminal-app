@@ -4,17 +4,17 @@ require_relative '../booking'
 require_relative '../store'
 require 'csv'
 describe PricesItem do
-    it 'return the price of the item' do
+    it 'return the name of the item' do
         name = "breakfast"
         price = 15.00
         price_item = PricesItem.new(name, price)
-        expect(price_item.price).to eq "breakfast"
+        expect(price_item.name).to eq "breakfast"
     end
-        it 'return the name of the item' do
+        it 'return the price of the item' do
             name = "breakfast"
             price = 15.00
             price_item = PricesItem.new(name, price)
-            expect(price_item.name).to be == 15.00
+            expect(price_item.price).to be == 15.00
     end
 end
 

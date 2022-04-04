@@ -6,6 +6,9 @@ class Course
         @glass = glass
         @dessert = dessert
     end
+    def display_course
+        return "#{menu}, #{glass}, #{dessert}"
+    end
     def self.display_morning
         puts "bacon egg open sandwich, orange juice, mini pancakes"
     end
@@ -16,6 +19,3 @@ class Course
         puts "steak with veggie, wine, mini cheesecake"
     end
 end
-# Course.display_morning
-# Course.display_noon
-# Course.display_night

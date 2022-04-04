@@ -1,10 +1,12 @@
 class Booking
     attr_reader :time
+
     def initialize(times)
         @times = times
     end
-    def time
+    def time_display
         return @times
     end
 end
-Booking.time
+# time = Booking.new(3.00)
+# p time
