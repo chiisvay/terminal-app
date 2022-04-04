@@ -1,6 +1,10 @@
 https://github.com/chiisvay/terminal-app
 
 ## Referenced sources
+### GEMS used
+- TTY-Prompt
+Piotr Murach, tty-box, rubygems.org, viewed 29 March 2022, <https://rubygems.org/gems/tty-prompt/versions/0.23.1>
+- TTY- Piotr Murach, tty-box, rubygems.org, viewed 29 March 2022, <https://rubygems.org/gems/tty-box/versions/0.3.0>
 
 ## GitHub
 https://github.com/chiisvay/terminal-app
@@ -42,5 +46,10 @@ Piotr Murach,tty-box,rubygems.org, viewed 27 March 2022, <https://rubygems.org/g
 ```
 ' ruby.main.rb '
 ```
+## 
+
+##
+
+##
 
 
